@@ -177,5 +177,14 @@ namespace Automobile
         {
             return Numerotelaio + ";" + Targa + ";" + Produttore + ";" + Modello + "\n";
         }
+
+        //clone
+        protected Automobile(Automobile other) : this(other.Numerotelaio, other.Targa, other.Produttore, other.Modello)
+        {
+        }
+        public Automobile Clone()
+        {
+            return new Automobile(this);
+        }
     }
 }
