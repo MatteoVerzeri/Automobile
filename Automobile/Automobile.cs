@@ -42,17 +42,28 @@ namespace Automobile
         }
         public void accendi()
         {
-            if (stato == false&&guidatore==true)
+            if (stato == false && guidatore == true)
+            {
                 stato = true;
+                velocita = 0;
+            }
             else
                 throw new Exception("la macchina è gia accesa");
         }
         public void spegni()
         {
-            if (stato == true)
-                stato = false;
+            if (velocita == 0)
+            {
+                if (stato == true && guidatore == true)
+                {
+                    stato = false;
+                    velocita = 0;
+                }
+                else
+                    throw new Exception("la macchina è gia spenta");
+            }
             else
-                throw new Exception("la macchina è gia spenta");
+                throw new Exception("la macchina non è ferma");
         }
         public void impostalimite(int v)
         {
@@ -63,7 +74,7 @@ namespace Automobile
         }
         public void acceleratore(int v) 
         { 
-            if(v >= 1)
+            if(v >= 1&&guidatore==true)
             {
                 if(velocita + v <= velocitamax)
                 velocita = velocita + v;
@@ -81,7 +92,7 @@ namespace Automobile
         public void decelerazione(int v)
         {
             
-            if (v >= 1 && velocita - v >= 0)
+            if (v >= 1 && velocita - v >= 0 && guidatore == true)
                 velocita = velocita - v;
             else
                 throw new Exception("velocita impostata non valida");   
@@ -92,46 +103,71 @@ namespace Automobile
         }
         public void salitaguidatore()
         {
-            if (guidatore == false)
+            if (velocita == 0)
             {
-                guidatore = true;
+                if (guidatore == false)
+                {
+                    guidatore = true;
+                }
+                else
+                    throw new Exception("il guidatore è gia in macchina");
             }
             else
-                throw new Exception("il guidatore è gia in macchina");
+                throw new Exception("la macchina non è ferma");
         }
         public void salitapasseggero(int p)
         {
-            if (p >= 1 && passeggeri + p <= 4)
-                passeggeri = passeggeri + p;
+            if (velocita == 0)
+            {
+                if (p >= 1 && passeggeri + p <= 4)
+                    passeggeri = passeggeri + p;
+                else
+                    throw new Exception("numero di passeggeri non valido");
+            }
             else
-                throw new Exception("numero di passeggeri non valido");
+                throw new Exception("la macchina non è ferma");
         }
         public void discesaguidatore()
         {
-            if (guidatore == true)
+            if (velocita == 0)
             {
-                guidatore = false;
+                if (guidatore == true)
+                {
+                    guidatore = false;
+                }
+                else
+                    throw new Exception("il guidatore è gia fuori dalla macchina");
             }
             else
-                throw new Exception("il guidatore è gia fuori dalla macchina");
+                throw new Exception("la macchina non è ferma");
         }
         public void discesapasseggeri(int p)
         {
-            if (p >= 0 && passeggeri - p >= 0)
+            if (velocita == 0)
             {
-                passeggeri = passeggeri - p;
+                if (p >= 0 && passeggeri - p >= 0)
+                {
+                    passeggeri = passeggeri - p;
+                }
+                else
+                    throw new Exception("numero passeggeri in discesa non valido");
             }
             else
-                throw new Exception("numero passeggeri in discesa non valido");
+                throw new Exception("la macchina non è ferma");
         }
         public void discesapasseggerosingolo()
         {
-            if (passeggeri > 0)
+            if (velocita == 0)
             {
-                passeggeri--;
+                if (passeggeri > 0)
+                {
+                    passeggeri--;
+                }
+                else
+                    throw new Exception("non ci sono abbasanza passeggeri");
             }
             else
-                throw new Exception("non ci sono abbasanza passeggeri");
+                throw new Exception("la macchina non è ferma");
         }
         public int ottienipasseggeri()
         {
