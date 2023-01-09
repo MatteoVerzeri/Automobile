@@ -14,11 +14,18 @@ namespace Automobile
             auto.salitaguidatore();
             auto.accendi();
             auto.impostalimite(126);
-            auto.acceleratore(20);
+            auto.acceleratore(130);
+            Console.WriteLine("numero infrazioni eseguite 1: " + auto.ottieniinfrazioni());
             auto.decelerazione(20);
+            auto.acceleratore(20);
+            Console.WriteLine("numero infrazioni eseguite 1: " + auto.ottieniinfrazioni());
+            auto.decelerazione(130);
             auto.salitapasseggero(3);
+            Console.WriteLine("conteggio passeggeri 1: " + auto.ottienipasseggeri());
             auto.discesapasseggeri(2);
+            Console.WriteLine("conteggio passeggeri 2: " + auto.ottienipasseggeri());
             auto.discesapasseggerosingolo();
+            Console.WriteLine("conteggio passeggeri 2: " + auto.ottienipasseggeri());
             auto.spegni();
             auto.discesaguidatore();
         }
