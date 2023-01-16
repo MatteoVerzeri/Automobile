@@ -1,4 +1,4 @@
-﻿namespace Automobile.Libreria
+﻿namespace Auto.Libreria
 {
     public class Automobile
     {
