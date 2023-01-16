@@ -63,20 +63,21 @@ namespace TestColombi.Lotto
         public void Testreset()
         {
             lotto = new Lotto("5", "1029390");
-            Lotto lotto2 = new Lotto("4", "ugiwu92");
+            
             lotto.Reset();
-            lotto2.Reset();
-            Assert.True(lotto==lotto2);
+
+            Assert.True(lotto.NumeriEstratti[0] ==0);
         }
         [Fact]
         public void Testreset2()
         {
             lotto = new Lotto("5", "1029390");
-            Lotto lotto2 = new Lotto("4", "ugiwu92");
-
+            
+            lotto.EstraiCinque();
+            
             lotto.Reset();
-            lotto2.Reset();
-            Assert.True(lotto == lotto2);
+            
+            Assert.True(lotto.NumeriEstratti[0] == 0);
         }
 
     }
