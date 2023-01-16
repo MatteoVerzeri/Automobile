@@ -1,6 +1,6 @@
-﻿namespace Auto.Libreria
+﻿namespace Automobile.Libreria
 {
-    public class Automobile
+    public class Auto
     {
         private string _numerotelaio;
         private string _targa;
@@ -22,7 +22,7 @@
         public bool Stato { get { return stato; } set { stato = value; } }
         public int Velocitamax { get { return velocitamax; } set { velocitamax = value; } }
         public int Passeggeri { get { return passeggeri; } set { passeggeri = value; } }
-        public Automobile(string numerotelaio, string targa, string produttore, string modello)
+        public Auto(string numerotelaio, string targa, string produttore, string modello)
         {
             this._numerotelaio = numerotelaio;
             this._targa = targa;
@@ -174,12 +174,12 @@
 
 
         //clone
-        protected Automobile(Automobile other) : this(other.Numerotelaio, other.Targa, other.Produttore, other.Modello)
+        protected Auto(Auto other) : this(other.Numerotelaio, other.Targa, other.Produttore, other.Modello)
         {
         }
-        public Automobile Clone()
+        public Auto Clone()
         {
-            return new Automobile(this);
+            return new Auto(this);
         }
     }
 }
